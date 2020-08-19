@@ -44,7 +44,7 @@ app.put("/repositories/:id", (request, response) => {
 
   const { id } = request.params;
 
-    const {title, url, techs, } = request.body;
+    const {title, url, techs, likes } = request.body;
 
     const repoIndex = repositories.findIndex(repository => repository.id === id);
 
@@ -57,6 +57,7 @@ app.put("/repositories/:id", (request, response) => {
         title, 
         url,
         techs,
+        likes: repositories[repoIndex].likes
     }
 
     repositories[repoIndex] = repository;
